@@ -1,6 +1,7 @@
 """
 Ejercicio 2. Clasificación de números simultáneamente a recibir los mensajes
 """
+
 from multiprocessing import Process
 from paho.mqtt.client import Client
 import sys
@@ -60,7 +61,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         broker = sys.argv[1]
     topic = "clients/numbers"
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 2:
         topic = sys.argv[2]
     # topic = 'clients/mi_tema/mi_subtema' # numbers no estaba produciendo numeros
     main(broker)
