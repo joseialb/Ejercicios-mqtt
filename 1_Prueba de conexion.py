@@ -17,7 +17,7 @@ def on_message(client, userdata, msg):
 def on_publish(client, userdata, mid):
     print("Se ha podido publicar el mensaje correctamente")
 
-def main(broker):
+def main():
     client = Client()
     client.on_connect = on_connect
     client.on_publish = on_publish
@@ -30,12 +30,12 @@ def main(broker):
     
     client.loop_start()
     
-    a = ""
+    a = input("Mensaje?\n")
     while a != "quit":
-        a = input("Mensaje?")
         client.publish('clients/mi_tema/mi_subtema', a)
+        a = input("Mensaje?\n")
 
 
 if __name__ == '__main__':
     broker = "simba.fdi.ucm.es"
-    main(broker)
+    main()

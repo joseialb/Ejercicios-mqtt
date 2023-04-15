@@ -45,7 +45,7 @@ def on_message(client, userdata, msg):
     except ValueError:
         pass
 
-def main(broker):
+def main():
     userdata = {'int': [], 'float': [], 'frec' : {'total' : 0}}
     client = Client(userdata=userdata)
     client.on_message = on_message
@@ -60,10 +60,10 @@ if __name__ == '__main__':
     broker = "simba.fdi.ucm.es"
     if len(sys.argv) > 1:
         broker = sys.argv[1]
-    topic = "clients/numbers"
+    topic = "numbers"
     if len(sys.argv) > 2:
         topic = sys.argv[2]
     # topic = 'clients/mi_tema/mi_subtema' # numbers no estaba produciendo numeros
-    main(broker)
+    main()
 
     
